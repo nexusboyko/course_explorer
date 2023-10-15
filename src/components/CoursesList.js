@@ -5,7 +5,7 @@ import CourseItem from './CourseItem';
 import { connect, useDispatch } from 'react-redux';
 
 import { getCourses } from '../coursesSlice';
-import { getCourseAssignmentsById } from '../assignmentsSlice'
+import { getCourseAssignmentsById, getCourseAssignmentsFromCSE } from '../assignmentsSlice'
 
 const CoursesList = (props) => {
   const dispatch = useDispatch();
@@ -22,8 +22,9 @@ const CoursesList = (props) => {
     // get assignments for each course
     return () => {
       props.courses.forEach(course => {
-        dispatch(getCourseAssignmentsById({id: course.id}));
+        dispatch(getCourseAssignmentsById({id: course.id, name: course.name}));
       })
+      dispatch(getCourseAssignmentsFromCSE({}));
     }
 
   }, [props.courses])
@@ -37,6 +38,7 @@ const CoursesList = (props) => {
     <>
       <ul>
       {
+        // check if all course assignments were loaded
         as.length === props.courses.length ?
         (props.courses.map((course) => {
           const assignmentList = props.assignments ? props.assignments.find(t => t.id === course.id).assignments : 0;          
@@ -46,9 +48,14 @@ const CoursesList = (props) => {
             </li>
           );
         }))
-        : <div className='flex items-center justify-center'>
-          <p className='bg-gray-100 rounded-lg p-4 text-center'>{as.length} / {props.courses.length} courses loaded</p>
-        </div>
+        : (
+          <div className='flex items-center justify-center'>
+            <small className='flex flex-col items-center justify-center'>
+              <span className="loading loading-dots loading-md"></span>
+              {as.length} / {props.courses.length} courses loaded
+            </small>
+          </div>
+        )
         /* status: {props.status} */
       }
       </ul>
