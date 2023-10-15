@@ -14,10 +14,10 @@ UW Dubhacks 2023 project.
        - [ ] ed
 
 Courses
-|-Course 1
-  |-Homework 1
-  |-Homework 2
-  |-Test 1
-|-Course 2
-  |-Lecture Notes
-|-Course 3
+|- Course 1
+    |- Homework 1
+    |- Homework 2
+    |- Test 1
+|- Course 2
+    |- Lecture Notes
+|- Course 3
