@@ -2,6 +2,11 @@
 UW Dubhacks 2023 project.
 A single, organized directory for all of your courses' resources, webpages, and discussion boards.
 
+## Try it out yourself
+1. Clone the repo
+2. run npm start
+3. goto localhost3000/
+
 # Goals
 - [ ] figure out api on
     - [ ] gradescope
