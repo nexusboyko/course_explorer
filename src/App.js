@@ -1,10 +1,15 @@
 import CoursesList from "./components/CoursesList";
 
+import { Provider } from 'react-redux';
+import store from './store';
+
 function App() {
   return (
-    <div className="">
-      <CoursesList />
-    </div>
+    <Provider store={store}>
+      <div className="py-20 w-[70%] m-auto">
+        <CoursesList />
+      </div>
+    </Provider>
   );
 }
 

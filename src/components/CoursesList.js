@@ -1,61 +1,67 @@
 import React, { useEffect, useState } from 'react';
-import CourseItem from './CourseItem';
 import axios from '../api/axios';
+import CourseItem from './CourseItem';
 
-const getCourses = async () => {
-  axios.get('/canvas')
-  .then((res) => {
-    return res.data;
-  })
-  .then((err) => {
-    console.log(err)
-  })
-  // const res = axios.get('/canvas');
-  // return res.data;
-}
+import { connect, useDispatch } from 'react-redux';
 
+import { getCourses } from '../coursesSlice';
+import { getCourseAssignmentsById } from '../assignmentsSlice'
 
-const getCourseAssignments = async (courses) => {  
-  const assignments = [];
+const CoursesList = (props) => {
+  const dispatch = useDispatch();
+  const [as, setAs] = useState([]);
 
-  courses.forEach(course => {
-    axios.get(`/canvas/${course.id}/assignments`).then((res) => {
-      assignments.push({
-        title: course.name,
-        assignments: res.data
+  // get course list
+  useEffect(() => {
+    dispatch(getCourses({}))
+  }, [])  
+  
+  useEffect(() => {
+    console.log('courses', props.courses);
+
+    // get assignments for each course
+    return () => {
+      props.courses.forEach(course => {
+        dispatch(getCourseAssignmentsById({id: course.id}));
       })
-    })
-  })
+    }
 
-  return assignments;
+  }, [props.courses])
 
-  // const id = 100000001661599;
-  // axios.get(`/canvas/${id}`).then((res) => {
-  //   console.log('assign', res.data);
-  // }).then((err) => {
-  //   console.log(err);
-  // })
-}
-
-
-const CoursesList = () => {  
+  useEffect(() => {
+    console.log('assignments', props.assignments);
+    setAs(props.assignments);
+  }, [props.assignments]);
+  
   return (
     <>
-      <ul className='list-inside list-disc'>
-        <li>Course</li>
-        <ul className='ms-5 list-inside list-disc'>
-          <li>Resource Type</li>
-          <ul className='ms-10 list-inside list-disc'>
-            <li>Resource</li>
-          </ul>
-        </ul>
+      <ul>
+      {
+        as.length === props.courses.length ?
+        (props.courses.map((course) => {
+          const assignmentList = props.assignments ? props.assignments.find(t => t.id === course.id).assignments : 0;          
+          return (
+            <li key={course.id} className='mb-4'>
+              <CourseItem id={course.id} title={course.name} assignments={assignmentList}/>
+            </li>
+          );
+        }))
+        : <div className='flex items-center justify-center'>
+          <p className='bg-gray-100 rounded-lg p-4 text-center'>{as.length} / {props.courses.length} courses loaded</p>
+        </div>
+        /* status: {props.status} */
+      }
       </ul>
-
-      <div>
-        <CourseItem title={'HW3'} />
-      </div>
     </>
   );
 };
 
-export default CoursesList;
+const mapStateToProps = (state) => {
+  return { 
+    courses: state.courses.courses,
+    assignments: state.assignments.assignments,
+    status: state.courses.status 
+  };
+};
+
+export default connect(mapStateToProps)(CoursesList);
