@@ -4,14 +4,14 @@ UW Dubhacks 2023 project.
 
 # Goals
  - [ ] Get Good looking ui
-  - [ ] hello world
-  - [ ] tree style view with dummy info
+    - [ ] hello world
+    - [ ] tree style view with dummy info
  - [ ] Get simple backend
-  - [ ] figure out web scraping on
-    - [ ] gradescope
-    - [ ] course websites
-    - [ ] canvus
-    - [ ] ed
+   - [ ] figure out web scraping on
+       - [ ] gradescope
+       - [ ] course websites
+       - [ ] canvus
+       - [ ] ed
 
 Courses
 |-Course 1
