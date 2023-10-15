@@ -22,21 +22,18 @@ export const getCourses = createAsyncThunk(
   }
 );
 
-const as = (courses) => {
-  const list = [];
+// const as = (courses) => {
+//   const list = [];
 
-  courses.forEach(course => {
-    // getCourseAssignmentsById({ id: course.id });
-    
-    list.push({
-      name: course.name,
-      id: course.id
-    })
-    // console.log(course.name, course.id);
-  })
+//   courses.forEach(course => {   
+//     list.push({
+//       name: course.name,
+//       id: course.id
+//     })
+//   })
 
-  return list;
-}
+//   return list;
+// }
 
 const coursesSlice = createSlice({
   name: 'courses',
@@ -48,9 +45,7 @@ const coursesSlice = createSlice({
         state.status = 'fulfilled';
         state.error = '';
         state.courses = action.payload;
-
-        console.log('list', as(state.courses));
-
+        // console.log('list', as(state.courses));
       })
       .addCase(getCourses.pending, (state, action) => {
         state.status = 'pending';
