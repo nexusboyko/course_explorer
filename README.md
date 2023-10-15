@@ -10,7 +10,7 @@ A single, organized directory for all of your courses' resources, webpages, and 
     - [ ] ed
 - [ ] make tree style layout for information
       
-# Idea
+## Idea
 |- Course 1\
 &ensp; |- Homework 1\
 &ensp; |- Homework 2\
