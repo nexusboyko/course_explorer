@@ -12,12 +12,14 @@ UW Dubhacks 2023 project.
        - [ ] course websites
        - [ ] canvus
        - [ ] ed
-
-Courses
-|- Course 1
-    |- Homework 1
-    |- Homework 2
-    |- Test 1
-|- Course 2
-    |- Lecture Notes
-|- Course 3
+        
+# example
+|- Course 1\
+&ensp; |- Homework 1\
+&ensp; |- Homework 2\
+&ensp; |- Homework 3\
+&ensp; |- Test 1\
+|- Course 2\
+&ensp; |- Lecture Notes\
+|- Course 3\
+&ensp; |- Files\
