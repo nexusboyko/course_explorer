@@ -1,19 +1,16 @@
 # courseExplorer
 UW Dubhacks 2023 project.
-
+A single, organized directory for all of your courses' resources, webpages, and discussion boards.
 
 # Goals
- - [ ] Get Good looking ui
-    - [ ] hello world
-    - [ ] tree style view with dummy info
- - [ ] Get simple backend
-   - [ ] figure out web scraping on
-       - [ ] gradescope
-       - [ ] course websites
-       - [ ] canvus
-       - [ ] ed
-        
-# example
+- [ ] figure out api on
+    - [ ] gradescope
+    - [x] course websites
+    - [x] canvus
+    - [ ] ed
+- [ ] make tree style layout for information
+      
+## Idea
 |- Course 1\
 &ensp; |- Homework 1\
 &ensp; |- Homework 2\
