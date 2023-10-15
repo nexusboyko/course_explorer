@@ -1,27 +1,8 @@
-# courseExplorer
-UW Dubhacks 2023 project.
+## courseExplorer
+UW Dubhacks '23 project. Made by Alexander Boyko, Daniel Hughes, and Julian Del Pino. <br />
 A single, organized directory for all of your courses' resources, webpages, and discussion boards.
 
-## Try it out yourself
-1. Clone the repo
-2. run npm start
-3. goto localhost3000/
-
-# Goals
-- [ ] figure out api on
-    - [ ] gradescope
-    - [x] course websites
-    - [x] canvus
-    - [ ] ed
-- [ ] make tree style layout for information
-      
-## Idea
-|- Course 1\
-&ensp; |- Homework 1\
-&ensp; |- Homework 2\
-&ensp; |- Homework 3\
-&ensp; |- Test 1\
-|- Course 2\
-&ensp; |- Lecture Notes\
-|- Course 3\
-&ensp; |- Files\
+### Running the project
+After cloning the repo locally, install all necessary dependencies by run "npm install". <br />
+To run the front-end UI, run "npm run start". <br /> 
+To run the back-end server, enter the **./server** folder and run "node index.js" (or "nodemon index.js" if you have it installed). <br /> 
